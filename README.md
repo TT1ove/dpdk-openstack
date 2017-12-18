@@ -1,9 +1,9 @@
 # DPDK-Openstack
 Improving Service Function Chaining (SFC) performance with Data Plane Development Kit (DPDK)
     
-*##Network Setup
+  ##Network Setup
 
-*##Wiki
+  ##Wiki
 
-*##Maintainer
+  ##Maintainer
 * Fan Zhongyi (fzyitt@gmail.com)
