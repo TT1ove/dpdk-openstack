@@ -1,0 +1,6 @@
+sudo qemu-system-x86_64 -m 512 -smp 4 -cpu host -hda /home/vm/Downloads/ubuntu-16.04-server-cloudimg-amd64-disk2.img -boot c -enable-kvm -no-reboot -net none -nographic -chardev socket,id=char2,path=/run/openvswitch/vhost-user2 -netdev type=vhost-user,id=mynet2,chardev=char2,vhostforce -device virtio-net-pci,mac=00:00:00:00:00:02,netdev=mynet2 -object memory-backend-file,id=mem,size=512M,mem-path=/dev/hugepages,share=on -numa node,memdev=mem -mem-prealloc -vnc 0.0.0.0:51
+
+
+sudo qemu-system-x86_64 -m 512 -name host1 -net nic,macaddr=52:54:00:00:01:00 -net tap,ifname=r1-eth0,script=no,downscript=no -hda ./host1.img &
+
+qemu-system-x86_64 -m 512 -smp 4 -cpu host -hda /home/vm/Downloads/ubuntu-16.04-server-cloudimg-amd64-disk4.img -boot c -enable-kvm -no-reboot -net none -nographic -net nic,macaddr=00:00:00:00:00:04 -net tap,ifname=r1-eth4,script=no,downscript=no
